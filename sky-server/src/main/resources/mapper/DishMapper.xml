@@ -3,11 +3,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sky.mapper.DishMapper">
 
+    <!--新增菜品-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
         insert into dish (name, category_id, price, image, description, create_time, update_time, create_user,update_user, status)
         values (#{name}, #{categoryId}, #{price}, #{image}, #{description}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser}, #{status})
     </insert>
 
+
+    <!--查询菜品及其口味-->
     <select id="pageQuery" resultType="com.sky.vo.DishVO">
         select d.*,c.name as categoryName
         from dish d
@@ -27,4 +30,15 @@
         order by update_time desc
 
     </select>
+
+
+    <!--根据id集合批量删除菜品-->
+    <delete id="deleteBatch">
+        delete from dish where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
 </mapper>
