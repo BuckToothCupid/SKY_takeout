@@ -7,8 +7,18 @@ sky:
     username: root
     password: 1234
 
+
   alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
     access-key-id: LTAI5tDGEj1pFBhKvUGW1XhB
     access-key-secret: Kee1fICASQqTedmAk9fzBOmL3LRAYW
     bucket-name: java-ai260302
+
+
+  #redis配置
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    #提供了16个数据库：db0-15，用database指定操作的数据库

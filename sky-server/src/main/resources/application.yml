@@ -14,6 +14,18 @@ spring:
       username: ${sky.datasource.username}
       password: ${sky.datasource.password}
 
+  #redis配置
+  redis:
+    host: ${sky.redis.host}
+    port: ${sky.redis.port}
+    password: ${sky.redis.password}
+    database: ${sky.redis.database}
+      #提供了16个数据库：db0-15，用database指定操作的数据库
+
+
+
+
+
 mybatis:
   #mapper配置文件
   mapper-locations: classpath:mapper/*.xml
